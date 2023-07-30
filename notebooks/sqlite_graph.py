@@ -5,6 +5,9 @@
 
 ## References
 
+# Schmid, M., 2021. Towards Storing 3D Model Graphs in Relational Databases. 
+# (Doctoral dissertation, Universität Passau).
+
 # Schmid, M., 2019, December. On efficiently storing huge property graphs in relational 
 # database management systems. In Proceedings of the 21st International Conference on 
 # Information Integration and Web-based Applications & Services (pp. 344-352).
