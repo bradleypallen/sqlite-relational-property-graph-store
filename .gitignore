@@ -4,4 +4,7 @@ lib/*
 share/*
 include/*
 pyvenv.cfg
+*.pyc
+*.db
+.DS_Store
 
