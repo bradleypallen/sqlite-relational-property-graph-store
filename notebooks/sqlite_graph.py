@@ -25,7 +25,7 @@ from sqlite_utils import Database
 # Schmid's approach uses a graph coloring algorithm to derive a hashing function that avoids 
 # collisions in the adjacency tables. We didn't get around to doing that yet. 
 # Instead, collisions be damned; we'll just hash the edge label to one of 
-# ```NUMBER_OF_COLUMN_PAIRS``` column pairs. 
+# NUMBER_OF_COLUMN_PAIRS column pairs. 
 
 NUMBER_OF_COLUMN_PAIRS = 100
 
@@ -40,10 +40,10 @@ def column_pair(label):
 
 # Schmid uses column triples in his adjacency table schema, with one column 
 # containing an array of edge ids, another column containing an array of target vertex ids, 
-# and a column containing the edge label common to all of those. His ```unshred_edges``` 
-# Common Table Expression (CTE) then uses PostgreSQL's ```UNNEST``` function to convert entries 
+# and a column containing the edge label common to all of those. His unshred_edges 
+# Common Table Expression (CTE) then uses PostgreSQL's UNNEST function to convert entries 
 # in the outgoing adjacency table to an intermediate result that enables subsequent CTEs or 
-# queries to process matching edges. Since SQLite doesn't have an equivalent to ```UNNEST```, 
+# queries to process matching edges. Since SQLite doesn't have an equivalent to UNNEST, 
 # we instead opt to use column pairs, one with the edge label and the other containing 
 # an array of JSON objects, each of which contains the edge and target vertex ids for 
 # a given edge that shares the edge label.
@@ -77,9 +77,9 @@ def generate_adjacency_tables(db):
 ### out_neighborhood_cte: a utility function for generating a CTE for edges with targets in 
 ### the out neighborhood of a given vertex and edge label
 
-# Here we define generate a Common Table Expression (CTE) corresponding to the combination of 
-# ```unshred_edges``` and ```gather_edges``` in Schmid's article, with the source vertex id and 
-# edge label as arguments.
+# Here we define a function that generates a Common Table Expression (CTE) corresponding to 
+# the combination of unshred_edges and gather_edges in Schmid's paper, with the source 
+# vertex id and edge label as arguments.
 
 def out_neighborhood_cte(vid, label):
     label_column, edges_column = column_pair(label)
