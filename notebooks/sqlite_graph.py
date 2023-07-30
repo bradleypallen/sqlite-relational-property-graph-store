@@ -1,7 +1,7 @@
 ### sqlite_graph.py
 
 # This is a very simple implementation of a relational database approach to storing and 
-# querying labeled property graphs as described (Schmid 2019).
+# querying labeled property graphs as described in [Schmid 2019].
 
 ## References
 
